@@ -50,7 +50,7 @@ mod test {
     use super::List;
     #[test]
     fn basics() {
-        let mut list = super::List::new();
+        let mut list = List::new();
 
         assert_eq!(list.pop(), None);
 
