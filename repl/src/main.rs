@@ -1,30 +1,14 @@
-pub struct AveragedCollection {
-    list: Vec<i32>,
-    average: f64,
+use blog::Post;
+
+fn main() {
+    let mut post = Post::new();
+
+    post.add_text("I ate a salad for lunch today");
+    assert_eq!("", post.content());
+
+    post.request_review();
+    assert_eq!("", post.content());
+
+    post.approve();
+    assert_eq("I ate a salad for lunch today", post.content());
 }
-
-impl AveragedCollection {
-    pub fn add(&mut self, value: i32) {
-        self.list.push(value)
-    }
-
-    pub fn remove(&mut self) -> Option<i32> {
-        if let Some(value) = self.list.pop() {
-            self.update_average();
-            Some(value)
-        } else {
-            None
-        }
-    }
-
-    pub fn average(&self) -> f64 {
-        self.average
-    }
-
-    fn update_average(&mut self) {
-        let sum: i32 = self.list.iter().sum();
-        self.average = sum as f64 / self.list.len() as f64;
-    }
-}
-
-fn main() {}
