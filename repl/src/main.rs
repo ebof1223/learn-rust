@@ -1,3 +1,5 @@
+use repl::Post;
+
 fn main() {
     let mut post = Post::new();
 
